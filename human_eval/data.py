@@ -5,10 +5,10 @@ import os
 
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-HUMAN_EVAL = os.path.join(ROOT, "..", "data", "HumanEval.jsonl.gz")
+HUMAN_EVAL_PYTHON = os.path.join(ROOT, "..", "data/scilab", "HumanEval.python.jsonl")
+HUMAN_EVAL_SCILAB = os.path.join(ROOT, "..", "data/scilab", "HumanEval.scilab.jsonl")
 
-
-def read_problems(evalset_file: str = HUMAN_EVAL) -> Dict[str, Dict]:
+def read_problems(evalset_file: str = HUMAN_EVAL_SCILAB) -> Dict[str, Dict]:        
     return {task["task_id"]: task for task in stream_jsonl(evalset_file)}
 
 
